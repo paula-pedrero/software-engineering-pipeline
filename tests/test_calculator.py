@@ -1,5 +1,4 @@
-def modulo(a, b):
-    return a % b
+from calculator import add, sub, modulo
 
 def test_modulo():
     assert modulo(10, 3) == 1

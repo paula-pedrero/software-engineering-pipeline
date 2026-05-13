@@ -20,7 +20,7 @@ def test_sub():
 
 
 def test_average():
-    assert average(0,10) == 5
+    assert average(0, 10) == 5
 
 
 def test_multiply():
@@ -29,8 +29,8 @@ def test_multiply():
 
 
 def test_power():
-    assert power(2,2) == 4
-    assert power(2,3) == 16
+    assert power(2, 2) == 4
+    assert power(2, 3) == 16
 
 
 def test_root():

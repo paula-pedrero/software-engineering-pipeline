@@ -6,7 +6,7 @@ def sub(a, b):
     return a - b
 
 
-def power(a,b):
+def power(a, b):
     return a ** b
 
 
@@ -34,6 +34,6 @@ def factorial(n):
 
 
 def root(a, b):
-    if b % 2 == 0 and  a < 0:
+    if b % 2 == 0 and a < 0:
         return "If a is negative b can't be even!"
     return a**(1/b)

@@ -36,7 +36,7 @@ def test_power():
 def test_root():
     assert root(100, 2) == 10
     assert root(-5, 2) == "If a is negative b can't be even!"
-    
+
 
 def test_factorial():
     assert factorial(4) == 24

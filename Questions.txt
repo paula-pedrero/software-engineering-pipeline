@@ -1,0 +1,31 @@
+1 Why is it better to have a separate lint job from the test job?
+Separating these into independent jobs allows for a modular pipeline where code style is validated independently of functional logic. 
+It improves clarity by providing independent logs for each type of failure, making it easier to identify if a problem is a formatting issue or a logic error.  
+
+2 What happens if the lint job fails? Why doesn't the test job run?
+If the lint job fails, the test job is marked as "skipped" and never executes. This happens because of the quality gate established by the needs: 
+lint parameter in the workflow configuration. This design saves time and computational resources by not attempting to test code that does not meet basic PEP 8 standards.  
+
+3 How does the quality gate concept connect to XP and Agile principles?
+The quality gate ensures automated quality assurance and a fast feedback loop, which are core to Extreme Programming (XP) and Agile. It prevents the integration of 
+sub-standard code into the main codebase, ensuring that the software remains in a "production-ready" state through incremental validation.  
+
+4 What is the difference between CI (Continuous Integration) and CD (Continuous Deployment)?
+CI (Continuous Integration): Focuses on developers integrating code multiple times a day, with every change automatically validated by a 
+pipeline (like the lint and test jobs in this lab).  
+CD (Continuous Deployment): Though not fully implemented in the main lab, CD refers to the next step: an automatic deployment stage that
+pushes code to production once it passes all CI stages. 
+
+5 What problems would arise if a team of 10 developers all pushed directly to main without branches or a CI pipeline?
+Without branches or a pipeline, the team would lose the "parallel work without interference" benefit of Agile. Code would be integrated into main 
+without prior review. This would likely lead to frequent "breaks" in the main branch, making it difficult to maintain a stable, working version of the 
+software and removing the collaborative review process provided by Pull Requests.  
+
+6 Why is it cheaper to catch a bug in the lint or test stage than after merging to main?
+Catching errors early (Shift-Left) provides fast feedback. If a bug is caught in the pipeline, it is blocked from merging, protecting the production environment. 
+Fixing a bug after it has been merged into main is more expensive because it can affect other developers' work, require complex reverts, or potentially 
+impact end-users if main is linked to production.  
+
+7 How would the pipeline change if the team added an automatic deployment stage?
+The team would add a third stage (e.g., deploy) that would likely have a needs: test requirement. This ensures that the code is only deployed to a server 
+or production environment if both the linting and testing stages have successfully passed, completing the CI/CD cycle.  

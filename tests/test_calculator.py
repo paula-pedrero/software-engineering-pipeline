@@ -30,7 +30,7 @@ def test_multiply():
 
 def test_power():
     assert power(2, 2) == 4
-    assert power(2, 3) == 16
+    assert power(2, 4) == 16
 
 
 def test_root():

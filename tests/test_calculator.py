@@ -1,7 +1,5 @@
-from calculator import add, sub, modulo
-from calculator import add, sub, average
-from calculator import add, sub, multiply
-from calculator import add, sub, root
+from calculator import add, sub, modulo, multiply, average, root, power, factorial, divide
+
 
 def test_modulo():
     assert modulo(10, 3) == 1
@@ -20,6 +18,10 @@ def test_average():
     assert average(0,10) == 5
 def test_multiply():
     assert multiply(3, 4) == 12
+
+def test_power():
+    assert power(2,2) == 4
+    assert power(2,3) == 16
     assert multiply(0, 5) == 0
 def test_root():
     assert root(100, 2) == 10
